@@ -1,21 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.rfl.sweng861.searchspotify.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Servlet class for the Spotify Search App. This is the intermediary object
+ * that will handle the RESTful requests.
  *
- * @author ruben
+ * @author Ruben F. Loweree Jr.
  */
+@WebServlet(name = "SpotifyServlet",
+        loadOnStartup = 1,
+        urlPatterns = {"/artists",
+            "/songs"
+        })
 public class SpotifyServletController extends HttpServlet {
 
     /**
@@ -43,8 +46,6 @@ public class SpotifyServletController extends HttpServlet {
             out.println("</html>");
         }
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -56,9 +57,20 @@ public class SpotifyServletController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String userPath = request.getServletPath();
+        if (userPath.equals("/artists")) {
+            //TODO add the connection to Spotify API.
+        } else if (userPath.equals("/songs")){
+            //TODO add the connection to Spotify API.
+        }
+        // use RequestDispatcher to forward request internally
+        String url = "/WEB-INF/view" + userPath + ".jsp";
+        try {
+            request.getRequestDispatcher(url).forward(request, response);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -70,7 +82,7 @@ public class SpotifyServletController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //NOT USED Since nothing is being posted to the servers.
     }
 
     /**
@@ -80,7 +92,7 @@ public class SpotifyServletController extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        return "Servlet for the Search Spotify.";
+    }
 
 }
