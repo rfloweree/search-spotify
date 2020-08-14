@@ -1,6 +1,9 @@
 package com.rfl.sweng861.searchspotify.servlet;
 
+import com.rfl.sweng861.searchspotify.search.SearchService;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
             "/songs"
         })
 public class SpotifyServletController extends HttpServlet {
+    private SearchService searchService = null;//Replace with the call to service instance.
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -32,9 +36,17 @@ public class SpotifyServletController extends HttpServlet {
             throws ServletException, IOException {
         String userPath = request.getServletPath();
         if (userPath.equals("/artists")) {
-            //TODO add the connection to Spotify API.
+            String artistName = request.getParameter("artistName");
+            if (artistName != null) {
+                Map<String, List<List<String>>> artists = searchService.searchByArtist(artistName);
+                request.setAttribute("artistResults", artists);
+            }
         } else if (userPath.equals("/songs")){
-            //TODO add the connection to Spotify API.
+            String songName = request.getParameter("songName");
+            if (songName != null) {
+                Map<String, List<String>> tracks = searchService.searchByTrack(songName);
+                request.setAttribute("songResults", tracks);
+            }
         }
         // use RequestDispatcher to forward request internally
         String url = "/WEB-INF/view" + userPath + ".jsp";
