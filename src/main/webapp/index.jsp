@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/spotifysearchapp.css">
+        <link rel="stylesheet" type="text/css" href="css/searchspotify.css">
         <title>Spotify Search</title>
     </head>
     <body>
@@ -18,11 +18,12 @@
                 <h1>Welcome to the Spotify Search</h1>
             </div>
             <div id="search-section">
-            <p>
-                Select the search type.
-            </p>
-            <a href='artists'>Search by Artist</a>
-            <a href='songs'>Search by Songs</a>
+                <h2>Select the search type.</h2>
+                <a href='artists'>Search by Artist</a>
+                <a href='songs'>Search by Songs</a>
+            </div>
+            <div id="footer">
+
             </div>
         </div>
     </body>
