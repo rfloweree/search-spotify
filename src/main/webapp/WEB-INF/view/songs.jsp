@@ -20,6 +20,7 @@
             <br/>
             <input type="submit" value="Find Song" name="findSong" />
         </form>
+        <a href='./index.jsp'>Home</a>
         <%Map<String, List<String>> result = (Map<String, List<String>>) request.getAttribute("songResults");
             if (result != null) {
                 if (!result.isEmpty()) {%>
