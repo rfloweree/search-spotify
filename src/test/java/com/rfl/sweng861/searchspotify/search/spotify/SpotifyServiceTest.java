@@ -50,7 +50,6 @@ public class SpotifyServiceTest {
         String search = "Queens of the Stone Age";
         Map<String, List<List<String>>> expResult = null;
         Map<String, List<List<String>>> result = SpotifyService.instance().searchByArtist(search);
-        assertEquals(expResult, result);
         assertTrue(!result.isEmpty());
 //        assertEquals(expResult, result);
     }
