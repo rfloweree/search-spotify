@@ -20,6 +20,7 @@
             <br/>
             <input type="submit" value="Find Artist" name="findArtist" />
         </form>
+        <a href='./index.jsp'>Home</a>
         <%Map<String, List<List<String>>> result = (Map<String, List<List<String>>>) request.getAttribute("artistResults");
                 if (result != null) {
                     if (!result.isEmpty()) {%>
