@@ -22,30 +22,35 @@
         </form>
         <a href='./index.jsp'>Home</a>
         <%Map<String, List<List<String>>> result = (Map<String, List<List<String>>>) request.getAttribute("artistResults");
-                if (result != null) {
-                    if (!result.isEmpty()) {%>
-                    <h2>Results</h2>
-                    <%for (String artist:result.keySet()) {%>
-                    <b><%=artist%></b>
-                    <%if (result.get(artist).isEmpty()) {%>
-                    <b>No albums found.</b>
-                    <%} else {%>
-                    <table>
-                        <tr>
-                            <th><b>Album</b></th>
-                            <th><b>Release Date</b></th>
-                            <th><b>Artist</b></th>
-                        </tr>
-                        <%for (List<String> albums:result.get(artist)) {%>
-                        <tr>
-                            <%for (String albumInfo:albums) {%>
-                            <td><%=albumInfo%></td>
-                            <%}%>
-                        </tr>
-                        <%}%>
-                    </table>
-                    <%}}} else {%>
-                    <b>No artists found.</b>
-                    <%}}%>
+            if (result != null) {
+                if (!result.isEmpty()) {%>
+        <h2>Results</h2>
+        <%for (String artist : result.keySet()) {%>
+        <b><%=artist%></b>
+        <%if (result.get(artist).isEmpty()) {%>
+        <p>
+            <b>No albums found.</b>
+        </p>
+        <%} else {%>
+        <table>
+            <tr>
+                <th><b>Album</b></th>
+                <th><b>Release Date</b></th>
+                <th><b>Artist</b></th>
+            </tr>
+            <%for (List<String> albums : result.get(artist)) {%>
+            <tr>
+                <%for (String albumInfo : albums) {%>
+                <td><%=albumInfo%></td>
+                <%}%>
+            </tr>
+            <%}%>
+        </table>
+        <%}
+                        }
+                    } else {%>
+        <b>No artists found.</b>
+        <%}
+                        }%>
     </body>
 </html>
