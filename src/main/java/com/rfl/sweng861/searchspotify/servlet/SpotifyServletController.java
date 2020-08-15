@@ -1,6 +1,7 @@
 package com.rfl.sweng861.searchspotify.servlet;
 
 import com.rfl.sweng861.searchspotify.search.SearchService;
+import com.rfl.sweng861.searchspotify.search.spotify.SpotifyService;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
             "/songs"
         })
 public class SpotifyServletController extends HttpServlet {
-    private SearchService searchService = null;//Replace with the call to service instance.
+    private SearchService searchService = SpotifyService.instance();//Replace with the call to service instance.
     /**
      * Handles the HTTP <code>GET</code> method.
      *
