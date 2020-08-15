@@ -30,6 +30,7 @@
                 <th><b>Title</b></th>
                 <th><b>Album</b></th>
                 <th><b>Release Date</b></th>
+                <th><b>Artist</b></th>
             </tr>
             <%for (String track : result.keySet()) {%>
 
