@@ -6,14 +6,7 @@
 
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Search for Artists</title>
-    </head>
-    <body>
+
         <h1>Search Spotify for Artists</h1>
         <form>
             Enter Artist name: <input type="text" name="artistName" value="" />
@@ -52,5 +45,3 @@
         <b>No artists found.</b>
         <%}
                         }%>
-    </body>
-</html>
