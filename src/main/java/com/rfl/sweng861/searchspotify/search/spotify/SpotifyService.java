@@ -166,7 +166,6 @@ public class SpotifyService implements SearchService {
             SPOTIFY_API.setAccessToken(clientCredentials.getAccessToken());
         } catch (IOException | SpotifyWebApiException | ParseException ex) {
             Logger.getLogger(SpotifyService.class.getName()).log(Level.SEVERE, null, ex);
-            ex.printStackTrace();
         }
     }
 }
