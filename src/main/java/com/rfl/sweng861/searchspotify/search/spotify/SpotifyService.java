@@ -29,11 +29,11 @@ public class SpotifyService implements SearchService {
     /**
      * Client Id for registered app.
      */
-    private static final String CLIENT_ID = "1fc58f96bb094119ae2161dbab0102f9";
+    private static final String CLIENT_ID = "enter app client id here";
     /**
      * Client secret key for registered app.
      */
-    private static final String CLIENT_SECRET = "1437cfdcaafd401787a92cee498f7e14";
+    private static final String CLIENT_SECRET = "enter app client secret here";
     /**
      * Spotify api wrapper.
      */
